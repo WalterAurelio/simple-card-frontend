@@ -6,7 +6,7 @@ export const useFetchUser = (id?: number) => {
 
   useEffect(() => {
       // setLoading(true);
-      // new Promise(resolve => setTimeout(resolve, 2000));
+      new Promise(resolve => setTimeout(resolve, 2000));
       fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
         .then(response => response.json())
         .then(data => {

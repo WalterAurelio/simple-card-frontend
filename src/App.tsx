@@ -1,6 +1,10 @@
+import ParentComponent from './ParentComponent'
+
 function App() {
   return (
-    <div>App</div>
+    <div>
+      <ParentComponent />
+    </div>
   )
 }
 export default App
