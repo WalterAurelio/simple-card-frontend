@@ -8,10 +8,10 @@ describe('<ParentComponent />', () => {
     const inputElement = screen.getByRole('textbox');
     const submitButton = screen.getByRole('button', { name: /Submit/i });
 
-    fireEvent.change(inputElement, { target: { value: 'Hello World' } });
+    fireEvent.change(inputElement, { target: { value: 'Soy Aurelio' } });
     fireEvent.click(submitButton);
 
     const pElement = screen.getByTestId('paragraph-element');
-    expect(pElement.textContent).toBe('Text: Hello World');
-  });
+    expect(pElement.textContent).toBe('Text: Soy Aurelio');
+  })
 });

@@ -15,7 +15,7 @@ function ChildComponent({ onTextChange }: { onTextChange: (arg: string) => void 
     <div>
       <h2>Child Component</h2>
       <input type='text' value={inputValue} onChange={handleChange} />
-      <button onClick={handleSubmit}>Submit</button>
+      <button data-testid='boton-child' onClick={handleSubmit}>Submit</button>
     </div>
   )
 }

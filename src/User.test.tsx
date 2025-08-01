@@ -4,6 +4,26 @@ import { vi } from 'vitest';
 
 describe('<User />', () => {
   beforeEach(() => {
+    vi.resetAllMocks();
+  });
+
+  it('fetches and display user data', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      json: () => Promise.resolve({ id: 2, name: 'Aurelio', email: 'aurelio@gmail.com' })
+    });
+
+    render(<User userId={2} />);
+
+    expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByRole('heading', { name: /Aurelio/i })).toBeInTheDocument();
+      expect(screen.getByText('aurelio@gmail.com')).toBeInTheDocument();
+    })
+  });
+});
+
+/* describe('<User />', () => {
+  beforeEach(() => {
     global.fetch = vi.fn();
   });
 
@@ -25,4 +45,4 @@ describe('<User />', () => {
       expect(screen.getByText(/john@gmail.com/i)).toBeInTheDocument();
     });
   });
-});
+}); */
